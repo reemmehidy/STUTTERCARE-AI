@@ -1,0 +1,35 @@
+// Privacy policy text (template). Have a lawyer review it before a public launch.
+import { bi } from '../i18n'
+
+export const privacy = bi([
+  { h: { en: 'What StutterCare AI is', ar: 'ما هو ستاتر كير' },
+    p: { en: ['StutterCare AI is a speech practice app for children and adults who stutter. It gives practice feedback. It is not a medical device, it does not diagnose, and it does not replace a qualified speech-language therapist.'],
+      ar: ['ستاتر كير تطبيق للتدريب على الكلام للأطفال والكبار الذين يتلعثمون. يقدّم ملاحظات للتدريب. وهو ليس جهازًا طبيًا ولا يشخّص ولا يحل محل أخصائي نطق مؤهل.'] } },
+  { h: { en: 'What we store', ar: 'ما الذي نحفظه' },
+    p: { en: ['Account details: name, email, role (patient, parent or therapist), track (kids or adults), age, nickname, and the profile details you enter.',
+      'Practice results: scores, speech rate, number of pauses and repetitions, the word practiced, date and duration.',
+      'Plans and notes written by a linked therapist, and situation check-ins that adults choose to log.',
+      'We do not store your voice recordings or camera video.'],
+      ar: ['بيانات الحساب: الاسم والبريد الإلكتروني والدور (مريض أو ولي أمر أو أخصائي) والمسار (أطفال أو كبار) والعمر والاسم المستعار وبيانات الملف الشخصي التي تدخلها.',
+      'نتائج التدريب: الدرجات وسرعة الكلام وعدد الوقفات والتكرارات والكلمة المتدرَّب عليها والتاريخ والمدة.',
+      'الخطط والملاحظات التي يكتبها الأخصائي المرتبط بك، وتسجيلات المواقف التي يختار الكبار إضافتها.',
+      'نحن لا نحفظ تسجيلاتك الصوتية ولا فيديو الكاميرا.'] } },
+  { h: { en: 'Speech recognition and camera', ar: 'التعرف على الكلام والكاميرا' },
+    p: { en: ['Speech is recognized by your web browser. In Chrome and Edge the audio is sent to the browser company\'s speech service. We only receive the resulting scores.',
+      'Mirror practice shows your camera on your own screen. The video is never recorded or uploaded.'],
+      ar: ['يتم التعرف على الكلام بواسطة متصفحك. في كروم وإيدج يُرسل الصوت إلى خدمة الكلام التابعة لشركة المتصفح. نحن نستقبل الدرجات الناتجة فقط.',
+      'يعرض تدريب المرآة الكاميرا على شاشتك أنت فقط. لا يتم تسجيل الفيديو ولا رفعه.'] } },
+  { h: { en: 'Who can see your data', ar: 'من يمكنه رؤية بياناتك' },
+    p: { en: ['Only you, and the parent or therapist you link with your private link code. You can remove a link or create a new code at any time.',
+      'Administrators can see account details (such as name, email and role) to run the service.',
+      'We do not sell your data and we do not show advertising to children.'],
+      ar: ['أنت فقط، وولي الأمر أو الأخصائي الذي تربطه بك عن طريق كود الربط الخاص بك. يمكنك إزالة الربط أو إنشاء كود جديد في أي وقت.',
+      'يستطيع مديرو الخدمة رؤية بيانات الحساب (مثل الاسم والبريد والدور) لتشغيل الخدمة.',
+      'لا نبيع بياناتك ولا نعرض إعلانات للأطفال.'] } },
+  { h: { en: 'Children', ar: 'الأطفال' },
+    p: { en: ['A parent or guardian must create or approve an account for a child. By creating the account you confirm you are the parent or guardian.'],
+      ar: ['يجب أن يقوم ولي الأمر بإنشاء حساب الطفل أو الموافقة عليه. بإنشاء الحساب فإنك تؤكد أنك ولي الأمر.'] } },
+  { h: { en: 'Your choices', ar: 'اختياراتك' },
+    p: { en: ['You can delete your account and all its data from Settings. Accounts that never confirm their email are removed after 7 days.'],
+      ar: ['يمكنك حذف حسابك وكل بياناته من الإعدادات. الحسابات التي لا تؤكد بريدها الإلكتروني تُحذف بعد 7 أيام.'] } }
+])
