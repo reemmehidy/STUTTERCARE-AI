@@ -1,4 +1,5 @@
 <script setup>
+import { t } from '../../i18n'
 import { computed } from 'vue'
 import PageHeader from '../../components/PageHeader.vue'
 import StatCard from '../../components/StatCard.vue'
@@ -13,28 +14,28 @@ const unreadFeedback = computed(() => session.feedback[0])
 </script>
 
 <template>
-  <PageHeader :title="`Hi ${session.user?.name}`" :subtitle="session.track === 'kids' ? 'Ready for a voice game?' : 'Ready for today\'s practice?'">
-    <RouterLink to="/app/exercises" class="pill">Start practice</RouterLink>
+  <PageHeader :title="`${t('Hi')} ${session.user?.name}`" :subtitle="session.track === 'kids' ? t('Ready for a voice game?') : t('Ready for today\'s practice?')">
+    <RouterLink to="/app/exercises" class="pill">{{ t('Start practice') }}</RouterLink>
   </PageHeader>
   <div class="grid-3">
-    <StatCard label="Today" :value="`${doneCount}/${today.length}`" hint="exercises done" tone="soft" />
-    <StatCard label="Latest score" :value="last?.score ?? '-'" :hint="last ? fmtDate(last.date) : 'No sessions yet'" tone="mint" />
-    <StatCard v-if="session.track === 'kids'" label="Stars" :value="session.stars" hint="collect them in games" tone="sun" />
-    <StatCard v-else label="Sessions" :value="session.results.length" hint="recorded so far" tone="sun" />
+    <StatCard :label="t('Today')" :value="`${doneCount}/${today.length}`" :hint="t('exercises done')" tone="soft" />
+    <StatCard :label="t('Latest score')" :value="last?.score ?? '-'" :hint="last ? fmtDate(last.date) : t('No sessions yet')" tone="mint" />
+    <StatCard v-if="session.track === 'kids'" :label="t('Stars')" :value="session.stars" :hint="t('collect them in games')" tone="sun" />
+    <StatCard v-else :label="t('Sessions')" :value="session.results.length" :hint="t('recorded so far')" tone="sun" />
   </div>
   <section class="panel today">
     <WaveMark fluent :size="70" />
     <div class="stack">
-      <h2>Today's exercises</h2>
-      <p v-if="!today.length" class="muted">Nothing planned today. Enjoy your rest, or practice anything from the list.</p>
+      <h2>{{ t('Today\'s exercises') }}</h2>
+      <p v-if="!today.length" class="muted">{{ t('Nothing planned today. Enjoy your rest, or practice anything from the list.') }}</p>
       <div v-for="e in today" :key="e.id" class="row between">
-        <span>{{ e.title }} <span class="tag" :class="{ good: isDone(e.id) }">{{ isDone(e.id) ? 'Done' : e.minutes + ' min' }}</span></span>
-        <RouterLink :to="`/app/exercises/${e.id}`" class="link">Open</RouterLink>
+        <span>{{ e.title }} <span class="tag" :class="{ good: isDone(e.id) }">{{ isDone(e.id) ? t('Done') : e.minutes + ' ' + t('min') }}</span></span>
+        <RouterLink :to="`/app/exercises/${e.id}`" class="link">{{ t('Open') }}</RouterLink>
       </div>
     </div>
   </section>
   <section v-if="unreadFeedback" class="panel soft">
-    <h3>From your therapist</h3>
+    <h3>{{ t('From your therapist') }}</h3>
     <p>{{ unreadFeedback.text }}</p>
   </section>
 </template>

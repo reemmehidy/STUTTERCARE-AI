@@ -1,4 +1,5 @@
 <script setup>
+import { t } from '../../i18n'
 import WaveMark from '../../components/WaveMark.vue'
 
 const steps = [
@@ -25,57 +26,57 @@ const faq = [
     <section class="hero">
       <div class="container heroGrid">
         <div class="stack copy">
-          <span class="tag">Kids and adults</span>
-          <h1>Speech practice that fits your voice.</h1>
-          <p class="lead">Guided daily exercises, instant feedback on pauses, repetitions and speech rate, and a speech therapist who stays in the loop.</p>
+          <span class="tag">{{ t('Kids and adults') }}</span>
+          <h1>{{ t('Speech practice that fits your voice.') }}</h1>
+          <p class="lead">{{ t('Guided daily exercises, instant feedback on pauses, repetitions and speech rate, and a speech therapist who stays in the loop.') }}</p>
           <div class="row">
-            <RouterLink to="/register" class="pill">Get started</RouterLink>
-            <RouterLink to="/login" class="pill ghost">Log in</RouterLink>
+            <RouterLink to="/register" class="pill">{{ t('Get started') }}</RouterLink>
+            <RouterLink to="/login" class="pill ghost">{{ t('Log in') }}</RouterLink>
           </div>
         </div>
         <div class="art" aria-hidden="true">
           <WaveMark fluent :size="160" />
-          <div class="float f1"><small>Speech rate</small><strong>112 wpm</strong></div>
-          <div class="float f2"><small>Pauses</small><strong>3 this session</strong></div>
-          <div class="float f3"><small>Sample data</small><strong>Score 74</strong></div>
+          <div class="float f1"><small>{{ t('Speech rate') }}</small><strong>{{ t('112 wpm') }}</strong></div>
+          <div class="float f2"><small>{{ t('Pauses') }}</small><strong>{{ t('3 this session') }}</strong></div>
+          <div class="float f3"><small>{{ t('Sample data') }}</small><strong>{{ t('Score 74') }}</strong></div>
         </div>
       </div>
     </section>
 
     <section class="container block">
-      <h2>One app, two tracks</h2>
+      <h2>{{ t('One app, two tracks') }}</h2>
       <div class="cards-2 tracks">
-        <div class="panel kids"><h3>Kids</h3><p>Voice games, stars and badges. Parents follow progress from their own dashboard.</p></div>
-        <div class="panel adults"><h3>Adults</h3><p>Real-life rehearsal: job interviews, phone calls and ordering food.</p></div>
+        <div class="panel kids"><h3>{{ t('Kids') }}</h3><p>{{ t('Voice games, stars and badges. Parents follow progress from their own dashboard.') }}</p></div>
+        <div class="panel adults"><h3>{{ t('Adults') }}</h3><p>{{ t('Real-life rehearsal: job interviews, phone calls and ordering food.') }}</p></div>
       </div>
     </section>
 
     <section id="how" class="container block">
-      <h2>How it works</h2>
+      <h2>{{ t('How it works') }}</h2>
       <div class="grid-4">
         <div v-for="(s, i) in steps" :key="s.t" class="panel soft">
-          <span class="num">{{ i + 1 }}</span><h3>{{ s.t }}</h3><p class="muted">{{ s.d }}</p>
+          <span class="num">{{ i + 1 }}</span><h3>{{ t(s.t) }}</h3><p class="muted">{{ t(s.d) }}</p>
         </div>
       </div>
     </section>
 
     <section id="measure" class="container block">
-      <h2>What we measure</h2>
+      <h2>{{ t('What we measure') }}</h2>
       <div class="grid-3">
-        <div v-for="m in measures" :key="m.t" class="panel"><h3>{{ m.t }}</h3><p class="muted">{{ m.d }}</p></div>
+        <div v-for="m in measures" :key="m.t" class="panel"><h3>{{ t(m.t) }}</h3><p class="muted">{{ t(m.d) }}</p></div>
       </div>
-      <p class="notice">AI results are practice feedback, not a medical diagnosis. The app supports a qualified speech therapist and does not replace one.</p>
+      <p class="notice">{{ t('AI results are practice feedback, not a medical diagnosis. The app supports a qualified speech therapist and does not replace one.') }}</p>
     </section>
 
     <section id="faq" class="container block narrow">
-      <h2>Questions</h2>
-      <details v-for="f in faq" :key="f.q" class="panel q"><summary>{{ f.q }}</summary><p class="muted">{{ f.a }}</p></details>
+      <h2>{{ t('Questions') }}</h2>
+      <details v-for="f in faq" :key="f.q" class="panel q"><summary>{{ t(f.q) }}</summary><p class="muted">{{ t(f.a) }}</p></details>
     </section>
 
     <section class="container block">
       <div class="cta">
-        <h2>Ready for your first exercise?</h2>
-        <RouterLink to="/register" class="pill sun">Create a free account</RouterLink>
+        <h2>{{ t('Ready for your first exercise?') }}</h2>
+        <RouterLink to="/register" class="pill sun">{{ t('Create a free account') }}</RouterLink>
       </div>
     </section>
   </main>
@@ -89,7 +90,7 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 800; color: var(--brand
 .art { position: relative; min-height: 340px; background: #fff; border-radius: 40px 90px 40px 90px; display: grid; place-items: center; }
 .float { position: absolute; background: var(--lav-soft); border-radius: 18px; padding: 12px 16px; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(42, 26, 94, .12); }
 .float small { font-size: .75rem; color: #5d5580; }
-.f1 { top: 22px; left: 22px; } .f2 { bottom: 26px; left: 30px; background: var(--mint); } .f3 { top: 40px; right: 22px; background: #ffe9b0; }
+.f1 { top: 22px; inset-inline-start: 22px; } .f2 { bottom: 26px; inset-inline-start: 30px; background: var(--mint); } .f3 { top: 40px; inset-inline-end: 22px; background: #ffe9b0; }
 .block { margin-top: 84px; display: flex; flex-direction: column; gap: 24px; }
 .block h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
 .tracks .panel { min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; border: 0; }
