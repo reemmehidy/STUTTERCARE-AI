@@ -1,0 +1,25 @@
+# Render Blueprint: creates the backend (API) service from this repo.
+services:
+  - type: web
+    name: stuttercare-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: TRIAL_DAYS
+        value: "7"
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
